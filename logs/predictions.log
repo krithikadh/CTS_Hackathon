@@ -1,1 +1,19 @@
 2025-09-13 18:53:39,918 - predictor - ERROR - Model file not found: C:\Users\jeni7\OneDrive\Documents\CTS_Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-13 18:53:45,329 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.96.0.3:5000
+2025-09-13 18:53:45,329 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-13 18:53:45,359 - werkzeug - INFO -  * Restarting with stat
+2025-09-13 18:53:47,279 - predictor - ERROR - Model file not found: C:\Users\jeni7\OneDrive\Documents\CTS_Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-13 18:53:47,325 - werkzeug - WARNING -  * Debugger is active!
+2025-09-13 18:53:47,335 - werkzeug - INFO -  * Debugger PIN: 998-325-834
+2025-09-13 18:55:47,248 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:55:47] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:55:47,657 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:55:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:56:05,952 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:05] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:34,053 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:56:34] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:34,217 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:56:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:56:36,204 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:36] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:36,442 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:57:16,808 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:57:16] "[35m[1mGET /health HTTP/1.1[0m" 503 -
+2025-09-13 18:59:00,768 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:59:00] "[35m[1mGET /health HTTP/1.1[0m" 503 -
