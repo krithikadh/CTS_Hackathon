@@ -4,6 +4,7 @@
 2025-09-13 15:48:25,661 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
+<<<<<<< HEAD
  * Running on http://192.168.1.11:5000
 2025-09-13 15:48:25,661 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
 2025-09-13 15:48:25,668 - werkzeug - INFO -  * Restarting with stat
@@ -215,3 +216,32 @@
 2025-09-14 22:35:34,426 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 22:35:34] "POST /predict HTTP/1.1" 200 -
 2025-09-14 22:35:34,467 - __main__ - INFO - Prediction made: {'timestamp': '2025-09-14T22:35:34.467637', 'request_type': 'json', 'patient_data': {'age': '[80-90)', 'time_in_hospital': 4, 'n_lab_procedures': 15, 'n_procedures': 1, 'n_medications': 10, 'n_outpatient': 0, 'n_inpatient': 0, 'n_emergency': 0, 'medical_specialty': 'Missing', 'diag_1': 'Circulatory', 'diag_2': 'Injury', 'diag_3': 'Respiratory', 'glucose_test': 'normal', 'A1Ctest': 'no', 'change': 'no', 'diabetes_med': 'yes'}, 'prediction': {'readmit_probability': 0.4348584051589448, 'readmit_probability_percent': '43.5%', 'prediction': 'WILL NOT readmit', 'will_readmit': False, 'risk_factors': [{'rank': 1, 'factor': 'Number of Lab Procedures', 'contribution': '1.255', 'impact': 'High'}, {'rank': 2, 'factor': 'Number of Medications', 'contribution': '0.940', 'impact': 'High'}, {'rank': 3, 'factor': 'Length of Hospital Stay', 'contribution': '0.217', 'impact': 'High'}], 'patient_data': {'age': '[80-90)', 'time_in_hospital': 4, 'n_lab_procedures': 15, 'n_procedures': 1, 'n_medications': 10, 'n_outpatient': 0, 'n_inpatient': 0, 'n_emergency': 0, 'medical_specialty': 'Missing', 'diag_1': 'Circulatory', 'diag_2': 'Injury', 'diag_3': 'Respiratory', 'glucose_test': 'normal', 'A1Ctest': 'no', 'change': 'no', 'diabetes_med': 'yes'}}, 'filename': None}
 2025-09-14 22:35:34,467 - werkzeug - INFO - 127.0.0.1 - - [14/Sep/2025 22:35:34] "POST /predict HTTP/1.1" 200 -
+=======
+ * Running on http://10.96.0.3:5000
+2025-09-13 18:53:45,329 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-13 18:53:45,359 - werkzeug - INFO -  * Restarting with stat
+2025-09-13 18:53:47,279 - predictor - ERROR - Model file not found: C:\Users\jeni7\OneDrive\Documents\CTS_Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-13 18:53:47,325 - werkzeug - WARNING -  * Debugger is active!
+2025-09-13 18:53:47,335 - werkzeug - INFO -  * Debugger PIN: 998-325-834
+2025-09-13 18:55:47,248 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:55:47] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:55:47,657 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:55:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:56:05,952 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:05] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:34,053 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:56:34] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:34,217 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:56:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:56:36,204 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:36] "[33mGET / HTTP/1.1[0m" 404 -
+2025-09-13 18:56:36,442 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:57:16,808 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:57:16] "[35m[1mGET /health HTTP/1.1[0m" 503 -
+2025-09-13 18:59:00,768 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:59:00] "[35m[1mGET /health HTTP/1.1[0m" 503 -
+2025-09-14 16:54:25,844 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:54:25,872 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.109:5000
+2025-09-14 16:54:25,873 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 16:54:25,874 - werkzeug - INFO -  * Restarting with stat
+2025-09-14 16:54:26,448 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:54:26,453 - werkzeug - WARNING -  * Debugger is active!
+2025-09-14 16:54:26,455 - werkzeug - INFO -  * Debugger PIN: 145-865-632
+2025-09-14 16:55:46,457 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:56:00,705 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+>>>>>>> 4f43e37f08c9152010b1d78bc15a6949b3bbd12e
