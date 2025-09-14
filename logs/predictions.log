@@ -17,3 +17,15 @@
 2025-09-13 18:56:36,442 - werkzeug - INFO - 10.96.0.3 - - [13/Sep/2025 18:56:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 2025-09-13 18:57:16,808 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:57:16] "[35m[1mGET /health HTTP/1.1[0m" 503 -
 2025-09-13 18:59:00,768 - werkzeug - INFO - 127.0.0.1 - - [13/Sep/2025 18:59:00] "[35m[1mGET /health HTTP/1.1[0m" 503 -
+2025-09-14 16:54:25,844 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:54:25,872 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.109:5000
+2025-09-14 16:54:25,873 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-14 16:54:25,874 - werkzeug - INFO -  * Restarting with stat
+2025-09-14 16:54:26,448 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:54:26,453 - werkzeug - WARNING -  * Debugger is active!
+2025-09-14 16:54:26,455 - werkzeug - INFO -  * Debugger PIN: 145-865-632
+2025-09-14 16:55:46,457 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 16:56:00,705 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
