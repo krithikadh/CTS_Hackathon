@@ -2,9 +2,9 @@
  "cells": [
   {
    "cell_type": "code",
-<<<<<<< HEAD
+
    "execution_count": 16,
-=======
+
    "execution_count": 4,
    "id": "e4f37144",
    "metadata": {},
@@ -20,7 +20,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
->>>>>>> b5c2455d78e405d20143040c985a6504902146d8
+
    "id": "f0e90c12",
    "metadata": {},
    "outputs": [],
@@ -37,11 +37,10 @@
   },
   {
    "cell_type": "code",
-<<<<<<< HEAD
+
    "execution_count": 17,
-=======
    "execution_count": 6,
->>>>>>> b5c2455d78e405d20143040c985a6504902146d8
+
    "id": "727ce1f7",
    "metadata": {},
    "outputs": [
