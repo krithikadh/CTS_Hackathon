@@ -37,6 +37,76 @@ CORS(app)
 predictor = ReadmissionPredictor()
 image_overlay = ImageOverlay()
 
+@app.route('/test-predictions', methods=['GET'])
+def test_predictions():
+    """Test endpoint to show different prediction scenarios."""
+    test_cases = [
+        {
+            'name': 'Low Risk Patient',
+            'data': {
+                'age': '[40-50)',
+                'time_in_hospital': 2,
+                'n_lab_procedures': 20,
+                'n_procedures': 0,
+                'n_medications': 5,
+                'n_outpatient': 0,
+                'n_inpatient': 0,
+                'n_emergency': 0,
+                'medical_specialty': 'Family/GeneralPractice',
+                'diag_1': 'Other',
+                'diag_2': 'Other',
+                'diag_3': 'Other',
+                'glucose_test': 'no',
+                'A1Ctest': 'no',
+                'change': 'no',
+                'diabetes_med': 'no'
+            }
+        },
+        {
+            'name': 'High Risk Patient',
+            'data': {
+                'age': '[80-90)',
+                'time_in_hospital': 15,
+                'n_lab_procedures': 80,
+                'n_procedures': 5,
+                'n_medications': 25,
+                'n_outpatient': 0,
+                'n_inpatient': 3,
+                'n_emergency': 2,
+                'medical_specialty': 'InternalMedicine',
+                'diag_1': 'Diabetes',
+                'diag_2': 'Circulatory',
+                'diag_3': 'Respiratory',
+                'glucose_test': 'high',
+                'A1Ctest': 'high',
+                'change': 'yes',
+                'diabetes_med': 'yes'
+            }
+        }
+    ]
+    
+    results = []
+    for test_case in test_cases:
+        try:
+            result = predictor.predict(test_case['data'])
+            results.append({
+                'name': test_case['name'],
+                'prediction': result['prediction'],
+                'probability': result['readmit_probability_percent'],
+                'will_readmit': result['will_readmit']
+            })
+        except Exception as e:
+            results.append({
+                'name': test_case['name'],
+                'error': str(e)
+            })
+    
+    return jsonify({
+        'test_results': results,
+        'message': 'Test predictions to verify both readmit and not readmit cases',
+        'timestamp': datetime.now().isoformat()
+    }), 200
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint."""

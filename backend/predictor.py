@@ -10,6 +10,10 @@ import numpy as np
 import logging
 from typing import Dict, List, Tuple
 import os
+import warnings
+
+# Suppress scikit-learn version warnings
+warnings.filterwarnings('ignore', category=UserWarning, module='sklearn')
 
 logger = logging.getLogger(__name__)
 

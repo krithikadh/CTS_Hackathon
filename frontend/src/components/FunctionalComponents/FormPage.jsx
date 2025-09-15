@@ -11,6 +11,12 @@ const FormPage = () => {
     diagnosis: [],
     glucose: "",
     aic: "",
+    medications: "5",
+    lab_procedures: "15",
+    procedures: "1",
+    previous_visits: "0",
+    emergency_visits: "0",
+    medication_changes: "no"
   });
 
   const handleChange = (e) => {
@@ -104,6 +110,62 @@ const FormPage = () => {
           <option value="high">High</option>
           <option value="normal">Normal</option>
           <option value="unknown">Unknown</option>
+        </select>
+
+        <label>Number of Medications:</label>
+        <input
+          type="number"
+          name="medications"
+          value={formData.medications}
+          onChange={handleChange}
+          min="1"
+          max="50"
+        />
+
+        <label>Lab Procedures Count:</label>
+        <input
+          type="number"
+          name="lab_procedures"
+          value={formData.lab_procedures}
+          onChange={handleChange}
+          min="1"
+          max="200"
+        />
+
+        <label>Number of Procedures:</label>
+        <input
+          type="number"
+          name="procedures"
+          value={formData.procedures}
+          onChange={handleChange}
+          min="0"
+          max="20"
+        />
+
+        <label>Previous Outpatient Visits:</label>
+        <input
+          type="number"
+          name="previous_visits"
+          value={formData.previous_visits}
+          onChange={handleChange}
+          min="0"
+          max="10"
+        />
+
+        <label>Emergency Visits:</label>
+        <input
+          type="number"
+          name="emergency_visits"
+          value={formData.emergency_visits}
+          onChange={handleChange}
+          min="0"
+          max="10"
+        />
+
+        <label>Medication Changes:</label>
+        <select name="medication_changes" value={formData.medication_changes} onChange={handleChange}>
+          <option value="no">No Changes</option>
+          <option value="yes">Has Changes</option>
         </select>
 
         <button type="submit">Submit</button>
