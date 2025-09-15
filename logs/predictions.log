@@ -29,3 +29,4 @@
 2025-09-14 16:54:26,455 - werkzeug - INFO -  * Debugger PIN: 145-865-632
 2025-09-14 16:55:46,457 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
 2025-09-14 16:56:00,705 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
+2025-09-14 17:01:19,918 - predictor - ERROR - Model file not found: E:\CTS Hackathon\CTS_Hackathon\models\readmit_pipeline.joblib
