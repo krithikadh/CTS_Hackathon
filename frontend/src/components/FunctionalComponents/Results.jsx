@@ -24,23 +24,23 @@ const Results = () => {
           return;
         }
 
-        // Map form data to API format using actual form values
+        // Map form data to API format
         const apiData = {
           age: `[${formData.age})`,  // Format as [XX-YY) for the API
           time_in_hospital: parseInt(formData.visits) || 1,
-          n_lab_procedures: parseInt(formData.lab_procedures) || 15,
-          n_procedures: parseInt(formData.procedures) || 1,
-          n_medications: parseInt(formData.medications) || 5,
-          n_outpatient: parseInt(formData.previous_visits) || 0,
-          n_inpatient: Math.floor(Math.random() * 2),   // Still random for inpatient (not in form)
-          n_emergency: parseInt(formData.emergency_visits) || 0,
+          n_lab_procedures: 15,  // Default value
+          n_procedures: 1,  // Default value
+          n_medications: 10,  // Default value
+          n_outpatient: 0,  // Default values for these fields
+          n_inpatient: 0,
+          n_emergency: 0,
           medical_specialty: "Missing",
           diag_1: formData.diagnosis[0] || "Other",
           diag_2: formData.diagnosis[1] || "Other", 
           diag_3: formData.diagnosis[2] || "Other",
           glucose_test: formData.glucose || "no",
-          A1Ctest: formData.a1c || "no",
-          change: formData.medication_changes || "no",
+          A1Ctest: formData.aic || "no",
+          change: "no",
           diabetes_med: "yes"
         };
 
