@@ -7,7 +7,7 @@ const FormPage = () => {
 
   const [formData, setFormData] = useState({
     age: "",
-    visits: "",
+    visits: "1",
     diagnosis: [],
     glucose: "",
     aic: "",
@@ -55,13 +55,16 @@ const FormPage = () => {
           <option value="90-100">90-100</option>
         </select>
 
-        <label>Total Visits:</label>
+        <label>Hospital Stay (days):</label>
         <input
           type="number"
           name="visits"
           value={formData.visits}
           onChange={handleChange}
+          min="1"
+          max="30"
         />
+
 
         <label>Diagnosis (choose up to 3):</label>
         <div className="diagnosis-options">
