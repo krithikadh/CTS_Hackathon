@@ -1,78 +1,108 @@
-.form-container {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px 30px;
-  background: #ffffff;
-  border-radius: 12px;
-  font-family: Arial, sans-serif;
+/* Overall Layout */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e6f7f9, #f1fdfd);
+  font-family: "Segoe UI", sans-serif;
+  color: #2e3a59;
 }
 
-.form-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #801c6c;
-}
-
-form {
+/* Left Section */
+.info-section {
+  flex: 1;
+  padding: 4rem 3rem;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: center;
+  background: #d9f3f7;
+  color: #1a3d5c;
+  box-shadow: inset -2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #125d70;
+}
+
+.info-section p {
+  margin: 0.6rem 0;
+  line-height: 1.5;
+  font-size: 1rem;
+  max-width: 90%;
+}
+
+/* Right Section (Form) */
+.form-section {
+  flex: 1;
+  background: #ffffffcc;
+  margin: 2rem;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  margin-bottom: 1.5rem;
+  color: #125d70;
+  text-align: center;
 }
 
 label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #dc4e92;
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 input,
 select {
-  padding: 8px 10px;
-  border: 1px solid #e5b0b7;
-  border-radius: 6px;
-  font-size: 14px;
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #b3d4d6;
+  border-radius: 8px;
   outline: none;
-  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background: #fdfefe;
 }
 
 input:focus,
 select:focus {
-  border-color: #9f393d;
-  box-shadow: 0 0 4px rgba(134, 21, 40, 0.4);
+  border-color: #5ab1bb;
+  box-shadow: 0 0 6px rgba(90, 177, 187, 0.4);
 }
 
+/* Diagnosis options */
 .diagnosis-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 15px;
-}
-
-.diagnosis-options label {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  color: #333;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
 }
 
-button {
-  background: #259d45;
-  color: #ffffff;
-  padding: 10px;
-  border: none;
+.checkbox-label {
+  background: #f1f9fa;
+  padding: 0.4rem 0.8rem;
   border-radius: 6px;
+  border: 1px solid #cfe8ea;
   cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+  font-size: 0.9rem;
+}
+
+/* Button */
+button {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  width: 100%;
+  background: #5ab1bb;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #20a457;
-  transform: scale(1.02);
-}
-
-button:active {
-  background: #2bb842;
-  transform: scale(0.98);
+  background: #47929a;
 }
