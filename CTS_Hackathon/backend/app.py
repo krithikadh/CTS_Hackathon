@@ -36,6 +36,7 @@ CORS(app)
 # Initialize predictor and image overlay
 predictor = ReadmissionPredictor()
 image_overlay = ImageOverlay()
+DEFAULT_DECISION_THRESHOLD = 0.50
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -137,6 +138,13 @@ def handle_json_prediction(request):
     
     # Make prediction
     result = predictor.predict(patient_data)
+
+    # Fixed decision rule: readmit if probability >= 0.50
+    prob = float(result.get('readmit_probability', 0.0))
+    will_readmit = prob >= DEFAULT_DECISION_THRESHOLD
+    result['will_readmit'] = bool(will_readmit)
+    result['prediction'] = "WILL readmit" if will_readmit else "WILL NOT readmit"
+    result['decision_threshold'] = DEFAULT_DECISION_THRESHOLD
     
     # Log prediction
     log_prediction(patient_data, result, 'json')

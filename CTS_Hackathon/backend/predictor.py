@@ -143,13 +143,13 @@ class ReadmissionPredictor:
             
             # Make prediction
             prediction_proba = self.model.predict_proba(input_df)[0]
-            prediction = self.model.predict(input_df)[0]
             
             # Get probability for readmission (class 1)
             readmit_probability = prediction_proba[1] if len(prediction_proba) > 1 else prediction_proba[0]
-            
-            # Determine prediction text
-            will_readmit = prediction == 1
+
+            # Fixed decision rule: readmit if probability >= 0.50
+            decision_threshold = 0.50
+            will_readmit = float(readmit_probability) >= decision_threshold
             prediction_text = "WILL readmit" if will_readmit else "WILL NOT readmit"
             
             # Get top risk factors
@@ -161,7 +161,8 @@ class ReadmissionPredictor:
                 'prediction': prediction_text,
                 'will_readmit': bool(will_readmit),
                 'risk_factors': risk_factors,
-                'patient_data': patient_data
+                'patient_data': patient_data,
+                'decision_threshold': float(decision_threshold)
             }
             
             return result

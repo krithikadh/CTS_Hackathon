@@ -10,7 +10,15 @@ const FormPage = () => {
     visits: "1",
     diagnosis: [],
     glucose: "",
-    aic: "",
+    a1c: "",
+    medications: "10",
+    lab_procedures: "30",
+    procedures: "1",
+    previous_visits: "0",
+    emergency_visits: "0",
+    medication_changes: "no",
+    medical_specialty: "Missing",
+    
   });
 
   const handleChange = (e) => {
@@ -105,6 +113,43 @@ const FormPage = () => {
           <option value="normal">Normal</option>
           <option value="unknown">Unknown</option>
         </select>
+
+        <label>Medical Specialty:</label>
+        <select name="medical_specialty" value={formData.medical_specialty} onChange={handleChange}>
+          {[
+            "Missing",
+            "InternalMedicine",
+            "Family/GeneralPractice",
+            "Cardiology",
+            "Endocrinology",
+            "Other"
+          ].map(opt => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
+
+        <label>Number of Medications:</label>
+        <input type="number" name="medications" min="0" max="50" value={formData.medications} onChange={handleChange} />
+
+        <label>Lab Procedures:</label>
+        <input type="number" name="lab_procedures" min="0" max="200" value={formData.lab_procedures} onChange={handleChange} />
+
+        <label>Number of Procedures:</label>
+        <input type="number" name="procedures" min="0" max="20" value={formData.procedures} onChange={handleChange} />
+
+        <label>Previous Outpatient Visits:</label>
+        <input type="number" name="previous_visits" min="0" max="20" value={formData.previous_visits} onChange={handleChange} />
+
+        <label>Emergency Visits:</label>
+        <input type="number" name="emergency_visits" min="0" max="20" value={formData.emergency_visits} onChange={handleChange} />
+
+        <label>Medication Changes:</label>
+        <select name="medication_changes" value={formData.medication_changes} onChange={handleChange}>
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+
+        
 
         <button type="submit">Submit</button>
       </form>

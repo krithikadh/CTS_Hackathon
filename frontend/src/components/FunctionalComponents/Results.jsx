@@ -24,24 +24,25 @@ const Results = () => {
           return;
         }
 
-        // Map form data to API format
+        // Map form data to API format (no randomness, honor user inputs)
         const apiData = {
-          age: `[${formData.age})`,  // Format as [XX-YY) for the API
+          age: `[${formData.age})`,
           time_in_hospital: parseInt(formData.visits) || 1,
-          n_lab_procedures: 15,  // Default value
-          n_procedures: 1,  // Default value
-          n_medications: 10,  // Default value
-          n_outpatient: 0,  // Default values for these fields
+          n_lab_procedures: parseInt(formData.lab_procedures) || 15,
+          n_procedures: parseInt(formData.procedures) || 1,
+          n_medications: parseInt(formData.medications) || 10,
+          n_outpatient: parseInt(formData.previous_visits) || 0,
           n_inpatient: 0,
-          n_emergency: 0,
-          medical_specialty: "Missing",
+          n_emergency: parseInt(formData.emergency_visits) || 0,
+          medical_specialty: formData.medical_specialty || "Missing",
           diag_1: formData.diagnosis[0] || "Other",
-          diag_2: formData.diagnosis[1] || "Other", 
+          diag_2: formData.diagnosis[1] || "Other",
           diag_3: formData.diagnosis[2] || "Other",
           glucose_test: formData.glucose || "no",
-          A1Ctest: formData.aic || "no",
-          change: "no",
-          diabetes_med: "yes"
+          A1Ctest: formData.a1c || "no",
+          change: formData.medication_changes || "no",
+          diabetes_med: "yes",
+          
         };
 
         // Call Flask API
@@ -51,7 +52,14 @@ const Results = () => {
           }
         });
 
-        setPrediction(response.data);
+        // Ensure label matches probability on the client too
+        const prob = Number(response.data.readmit_probability || 0);
+        const will = prob >= 0.5;
+        setPrediction({
+          ...response.data,
+          will_readmit: will,
+          prediction: will ? 'WILL readmit' : 'WILL NOT readmit'
+        });
       } catch (err) {
         console.error('Prediction error:', err);
         setError(err.response?.data?.error || 'Failed to get prediction');
