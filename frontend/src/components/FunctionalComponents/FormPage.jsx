@@ -13,17 +13,13 @@ const FormPage = () => {
     diagnosis: [],
     glucose: "",
     a1c: "",
-<<<<<<< HEAD
-    medications: "10",
-    lab_procedures: "30",
-    procedures: "1",
+    medications: "0",
+    lab_procedures: "0",
+    procedures: "0",
     previous_visits: "0",
     emergency_visits: "0",
     medication_changes: "no",
-    medical_specialty: "Missing",
-    
-=======
->>>>>>> 942b0b9fa1967bcdfdfbb9c7a7742ee46078a21e
+    medical_specialty: "Missing"
   });
 
   const handleChange = (e) => {
@@ -55,22 +51,33 @@ const FormPage = () => {
 
   return (
     <div className="page-container">
-      {/* Left Section */}
-      <div className="info-section">
-        <h1>Hospital Readmission Predictor</h1>
-        <p>
-          Our system helps predict the chances of hospital readmission based on
-          patient details and medical history. 
-        </p>
-        <p>
-          This tool assists healthcare providers in improving patient care,
-          planning follow-ups, and reducing readmission rates.
-        </p>
-        <p>
-          Fill in the form to get an instant prediction and insights about the
-          patient’s readmission probability.
-        </p>
-      </div>
+  {/* Left Section */}
+  <div className="info-section">
+    <h1>Hospital Readmission Predictor</h1>
+    <p>
+      Hospital Readmission Predictor is an AI-powered web application designed
+      to help healthcare providers assess the likelihood of a patient being
+      readmitted after discharge. By analyzing patient demographics, medical
+      history, and clinical details, the system provides instant predictions
+      and actionable insights.
+    </p>
+    <p>
+      This tool supports doctors, nurses, and hospital administrators in:
+    </p>
+    <ul>
+      <li>Improving patient care through early identification of high-risk patients.</li>
+      <li>Optimizing treatment plans by tailoring follow-ups and preventive measures.</li>
+      <li>Reducing hospital costs by lowering avoidable readmission rates.</li>
+      <li>Supporting decision-making with data-driven insights.</li>
+    </ul>
+    <p>
+      With its intuitive interface, healthcare professionals can enter patient
+      details via a user-friendly form and instantly receive a prediction,
+      along with probability scores and key contributing factors.
+    </p>
+  </div>
+
+
 
       {/* Right Section */}
       <div className="form-section">
@@ -125,7 +132,7 @@ const FormPage = () => {
             max="30"
           />
 
-          <label>Diagnosis (choose up to 3):</label>
+          <label>Diagnosis (select up to 3 and give primary first):</label>
           <div className="diagnosis-options">
             {[
               "Circulatory",
@@ -149,47 +156,6 @@ const FormPage = () => {
             ))}
           </div>
 
-<<<<<<< HEAD
-        <label>Medical Specialty:</label>
-        <select name="medical_specialty" value={formData.medical_specialty} onChange={handleChange}>
-          {[
-            "Missing",
-            "InternalMedicine",
-            "Family/GeneralPractice",
-            "Cardiology",
-            "Endocrinology",
-            "Other"
-          ].map(opt => (
-            <option key={opt} value={opt}>{opt}</option>
-          ))}
-        </select>
-
-        <label>Number of Medications:</label>
-        <input type="number" name="medications" min="0" max="50" value={formData.medications} onChange={handleChange} />
-
-        <label>Lab Procedures:</label>
-        <input type="number" name="lab_procedures" min="0" max="200" value={formData.lab_procedures} onChange={handleChange} />
-
-        <label>Number of Procedures:</label>
-        <input type="number" name="procedures" min="0" max="20" value={formData.procedures} onChange={handleChange} />
-
-        <label>Previous Outpatient Visits:</label>
-        <input type="number" name="previous_visits" min="0" max="20" value={formData.previous_visits} onChange={handleChange} />
-
-        <label>Emergency Visits:</label>
-        <input type="number" name="emergency_visits" min="0" max="20" value={formData.emergency_visits} onChange={handleChange} />
-
-        <label>Medication Changes:</label>
-        <select name="medication_changes" value={formData.medication_changes} onChange={handleChange}>
-          <option value="no">No</option>
-          <option value="yes">Yes</option>
-        </select>
-
-        
-
-        <button type="submit">Submit</button>
-      </form>
-=======
           <label>Glucose Test:</label>
           <select
             name="glucose"
@@ -216,10 +182,44 @@ const FormPage = () => {
             <option value="unknown">Unknown</option>
           </select>
 
+          <label>Medical Specialty:</label>
+          <select name="medical_specialty" value={formData.medical_specialty} onChange={handleChange}>
+            {[
+              "Missing",
+              "InternalMedicine",
+              "Family/GeneralPractice",
+              "Cardiology",
+              "Endocrinology",
+              "Other"
+            ].map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+
+          <label>Number of Medications:</label>
+          <input type="number" name="medications" min="0" max="50" value={formData.medications} onChange={handleChange} />
+
+          <label>Lab Procedures:</label>
+          <input type="number" name="lab_procedures" min="0" max="200" value={formData.lab_procedures} onChange={handleChange} />
+
+          <label>Number of Procedures:</label>
+          <input type="number" name="procedures" min="0" max="20" value={formData.procedures} onChange={handleChange} />
+
+          <label>Previous Outpatient Visits:</label>
+          <input type="number" name="previous_visits" min="0" max="20" value={formData.previous_visits} onChange={handleChange} />
+
+          <label>Emergency Visits:</label>
+          <input type="number" name="emergency_visits" min="0" max="20" value={formData.emergency_visits} onChange={handleChange} />
+
+          <label>Medication Changes:</label>
+          <select name="medication_changes" value={formData.medication_changes} onChange={handleChange}>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+
           <button type="submit">Submit</button>
         </form>
       </div>
->>>>>>> 942b0b9fa1967bcdfdfbb9c7a7742ee46078a21e
     </div>
   );
 };

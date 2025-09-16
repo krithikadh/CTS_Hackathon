@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Flask API for Hospital Readmission Prediction
-Provides endpoints for health checks and predictions with both JSON and image support.
-"""
-
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import logging
@@ -13,7 +7,6 @@ from datetime import datetime
 from predictor import ReadmissionPredictor
 from image_overlay import ImageOverlay
 
-# Configure logging
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -32,8 +25,6 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app)
-
-# Initialize predictor and image overlay
 predictor = ReadmissionPredictor()
 image_overlay = ImageOverlay()
 
@@ -41,7 +32,6 @@ image_overlay = ImageOverlay()
 def health_check():
     """Health check endpoint."""
     try:
-        # Check if model is loaded
         if predictor.model is None:
             return jsonify({
                 'status': 'unhealthy',
@@ -95,11 +85,9 @@ def predict():
     """
     
     try:
-        # Handle multipart request (with image)
         if 'image' in request.files:
             return handle_image_prediction(request)
-        
-        # Handle JSON request
+    
         elif request.is_json:
             return handle_json_prediction(request)
         
@@ -120,7 +108,7 @@ def handle_json_prediction(request):
     """Handle JSON prediction request."""
     patient_data = request.get_json()
     
-    # Validate required fields
+
     required_fields = [
         'age', 'time_in_hospital', 'n_lab_procedures', 'n_procedures',
         'n_medications', 'n_outpatient', 'n_inpatient', 'n_emergency',
@@ -135,10 +123,9 @@ def handle_json_prediction(request):
             'timestamp': datetime.now().isoformat()
         }), 400
     
-    # Make prediction
+   
     result = predictor.predict(patient_data)
     
-    # Log prediction
     log_prediction(patient_data, result, 'json')
     
     return jsonify(result), 200
@@ -147,7 +134,6 @@ def handle_image_prediction(request):
     """Handle multipart prediction request with image."""
     image_file = request.files['image']
     
-    # Get patient data from JSON if provided
     patient_data = {}
     if 'json' in request.form:
         import json
@@ -158,33 +144,24 @@ def handle_image_prediction(request):
                 'error': 'Invalid JSON in form data',
                 'timestamp': datetime.now().isoformat()
             }), 400
-    
-    # Use default patient data if not provided
+
     if not patient_data:
         patient_data = get_default_patient_data()
     
-    # Make prediction
     result = predictor.predict(patient_data)
     
-    # Process image with overlay
     try:
-        # Read image
         image_file.seek(0)
         image_data = image_file.read()
         
-        # Create overlay
         modified_image = image_overlay.add_prediction_overlay(image_data, result)
         
-        # Log prediction
         log_prediction(patient_data, result, 'image', image_file.filename)
         
-        # Return modified image and JSON response
         img_io = io.BytesIO()
         modified_image.save(img_io, 'PNG')
         img_io.seek(0)
         
-        # For multipart response, we'll return JSON with image info
-        # In a real implementation, you might want to save the image and return a URL
         result['image_processed'] = True
         result['original_filename'] = image_file.filename
         
@@ -192,7 +169,6 @@ def handle_image_prediction(request):
         
     except Exception as e:
         logger.error(f"Image processing failed: {str(e)}")
-        # Return prediction without image processing
         result['image_processed'] = False
         result['image_error'] = str(e)
         return jsonify(result), 200
@@ -247,8 +223,5 @@ def internal_error(error):
     }), 500
 
 if __name__ == '__main__':
-    # Ensure logs directory exists
     os.makedirs('../logs', exist_ok=True)
-    
-    # Start the Flask app
     app.run(host='0.0.0.0', port=5000, debug=True)
